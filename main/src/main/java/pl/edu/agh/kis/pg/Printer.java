@@ -43,13 +43,23 @@ public class Printer {
                 System.out.print( " / ");
                 expressionToExcel += " / ";
                 break;
-            case SIN: System.out.print( "sin(");
+            case SIN:
+                System.out.print( "(");
+                expressionToExcel += "(";
+                System.out.print( "sin(");
                 expressionToExcel += "sin(";
                 a1=print_indiv( buffer, ++buffercounter );
+                System.out.print( ")");
+                expressionToExcel += ")";
                 break;
-            case COS: System.out.print( "cos(");
+            case COS:
+                System.out.print( "(");
+                expressionToExcel += "(";
+                System.out.print( "cos(");
                 expressionToExcel += "cos(";
                 a1=print_indiv( buffer, ++buffercounter );
+                System.out.print( ")");
+                expressionToExcel += ")";
                 break;
         }
         a2=print_indiv( buffer, a1 );
