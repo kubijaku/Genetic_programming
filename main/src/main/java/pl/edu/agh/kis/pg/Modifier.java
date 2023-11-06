@@ -47,6 +47,8 @@ public class Modifier {
                         case SUB:
                         case MUL:
                         case DIV:
+                        case SIN:
+                        case COS:
                             parentcopy[mutsite] =
                                     (char) (rd.nextInt(FSET_END - FSET_START + 1)
                                             + FSET_START);
