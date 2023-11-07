@@ -5,7 +5,7 @@ import static pl.edu.agh.kis.pg.tiny_gp.*;
 
 public class Printer {
     int print_indiv( char []buffer, int buffercounter ) {
-        int a1=0, a2;
+        int a1=0, a2=-1;
 
         if ( buffer[buffercounter] < FSET_START ) {
             if ( buffer[buffercounter] < varnumber ) {
@@ -44,28 +44,21 @@ public class Printer {
                 expressionToExcel += " / ";
                 break;
             case SIN:
-                System.out.print( "(");
-                expressionToExcel += "(";
                 System.out.print( "sin(");
                 expressionToExcel += "sin(";
-                a1=print_indiv( buffer, ++buffercounter );
-                System.out.print( ")");
-                expressionToExcel += ")";
+                a1=++buffercounter;
                 break;
             case COS:
-                System.out.print( "(");
-                expressionToExcel += "(";
                 System.out.print( "cos(");
                 expressionToExcel += "cos(";
-                a1=print_indiv( buffer, ++buffercounter );
-                System.out.print( ")");
-                expressionToExcel += ")";
+                a1=++buffercounter;
                 break;
         }
         a2=print_indiv( buffer, a1 );
         System.out.print( ")");
         expressionToExcel += ")";
         return( a2);
+
     }
 
     void print_parms() {
