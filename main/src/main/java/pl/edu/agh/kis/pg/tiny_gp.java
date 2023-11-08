@@ -1,10 +1,5 @@
 package pl.edu.agh.kis.pg;
 
-/**
- * Przykładowy kod do zajęć laboratoryjnych 2, 3, 4 z przedmiotu: Programowanie zaawansowane 1
- * @author Paweł Skrzyński
- */
-
 import java.util.*;
 import java.io.*;
 
