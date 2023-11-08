@@ -35,6 +35,7 @@ public class Statistics {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         printer.print_indiv( pop[best], 0 );
 
         //TODO: otworz plik, zapisz tam skonwertowane równanie:
@@ -43,7 +44,7 @@ public class Statistics {
         expressionToExcel = "=" + expressionToExcel;
         expressionToExcel = expressionToExcel.replace(".", ",");
         expressionToExcel = expressionToExcel.replace("- -", "+");
-        expressionToExcel = expressionToExcel.replace("X1", "T21");
+        expressionToExcel = expressionToExcel.replace("X1", "A1");
 //        expressionToExcel = expressionToExcel.replace("X2", "AN3");
 
         File fnew = new File("to_excel.txt");
