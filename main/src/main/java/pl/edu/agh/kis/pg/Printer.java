@@ -19,23 +19,60 @@ public class Printer {
             return( ++buffercounter );
         }
         switch(buffer[buffercounter]) {
-            case ADD: System.out.print( "(");
-                expressionToExcel += "(";
-                a1=print_indiv( buffer, ++buffercounter );
-                System.out.print( " + ");
-                expressionToExcel += " + ";
+            case ADD:
+                if(     buffer[buffercounter + 1] < FSET_START && buffer[buffercounter + 1] > varnumber &&
+                        buffer[buffercounter + 2] < FSET_START && buffer[buffercounter + 2] > varnumber)
+                {
+                    double temp_res = x[buffer[buffercounter + 1]] + x[buffer[buffercounter + 2]];
+                    System.out.print( temp_res );
+                    expressionToExcel += temp_res;
+                    a1 = buffercounter + 2;
+
+
+//                    System.out.println();
+//                    System.out.println("I've shorted result!!!");
+//                    System.out.println();
+
+
+                } else {
+                    System.out.print( "(");
+                    expressionToExcel += "(";
+                    a1=print_indiv( buffer, ++buffercounter );
+                    System.out.print( " + ");
+                    expressionToExcel += " + ";
+                }
                 break;
-            case SUB: System.out.print( "(");
-                expressionToExcel += "(";
-                a1=print_indiv( buffer, ++buffercounter );
-                System.out.print( " - ");
-                expressionToExcel += " - ";
+            case SUB:
+                if(     buffer[buffercounter + 1] < FSET_START && buffer[buffercounter + 1] > varnumber &&
+                        buffer[buffercounter + 2] < FSET_START && buffer[buffercounter + 2] > varnumber)
+                {
+                    double temp_res = x[buffer[buffercounter + 1]] - x[buffer[buffercounter + 2]];
+                    System.out.print( temp_res );
+                    expressionToExcel += temp_res;
+                    a1 = buffercounter + 2;
+                } else {
+                    System.out.print( "(");
+                    expressionToExcel += "(";
+                    a1=print_indiv( buffer, ++buffercounter );
+                    System.out.print( " - ");
+                    expressionToExcel += " - ";
+                }
                 break;
-            case MUL: System.out.print( "(");
-                expressionToExcel += "(";
-                a1=print_indiv( buffer, ++buffercounter );
-                System.out.print( " * ");
-                expressionToExcel += " * ";
+            case MUL:
+                if(     buffer[buffercounter + 1] < FSET_START && buffer[buffercounter + 1] > varnumber &&
+                        buffer[buffercounter + 2] < FSET_START && buffer[buffercounter + 2] > varnumber)
+                {
+                    double temp_res = x[buffer[buffercounter + 1]] * x[buffer[buffercounter + 2]];
+                    System.out.print( temp_res );
+                    expressionToExcel += temp_res;
+                    a1 = buffercounter + 2;
+                } else {
+                    System.out.print( "(");
+                    expressionToExcel += "(";
+                    a1=print_indiv( buffer, ++buffercounter );
+                    System.out.print( " * ");
+                    expressionToExcel += " * ";
+                }
                 break;
             case DIV: System.out.print( "(");
                 expressionToExcel += "(";
