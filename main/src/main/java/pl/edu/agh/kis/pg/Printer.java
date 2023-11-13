@@ -89,7 +89,7 @@ public class Printer {
                     double temp_res = Math.sin(x[buffer[buffercounter + 1]]);
                     System.out.print( temp_res );
                     expressionToExcel += temp_res;
-                    a1 = buffercounter + 2;
+                    a1 = ++buffercounter;
                 } else {
                     System.out.print("sin(");
                     expressionToExcel += "sin(";
@@ -102,11 +102,11 @@ public class Printer {
                     double temp_res = Math.cos(x[buffer[buffercounter + 1]]);
                     System.out.print( temp_res );
                     expressionToExcel += temp_res;
-                    a1 = buffercounter + 2;
+                    a1 = ++buffercounter;
                 } else {
                     System.out.print( "cos(");
                     expressionToExcel += "cos(";
-                    a1=++buffercounter;
+                    a1 = ++buffercounter;
                 }
                 break;
         }
