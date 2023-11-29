@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class tiny_gp {
+public class TinyGp {
     double [] fitness;
     char [][] pop;
     static Random rd = new Random();
@@ -117,7 +117,7 @@ public class tiny_gp {
 
 
     static char [] buffer = new char[MAX_LEN];
-    char [] create_random_indiv( int depth ) {
+    char [] createRandomIndiv( int depth ) {
         char [] ind;
         int len;
 
@@ -132,12 +132,12 @@ public class tiny_gp {
         return( ind );
     }
 
-    char [][] create_random_pop(int n, int depth, double [] fitness ) {
+    char [][] createRandomPop(int n, int depth, double [] fitness ) {
         char [][]pop = new char[n][];
         int i;
 
         for ( i = 0; i < n; i ++ ) {
-            pop[i] = create_random_indiv( depth );
+            pop[i] = createRandomIndiv( depth );
             fitness[i] = fit.fitness_function(this, pop[i], varnumber);
         }
         return( pop );
@@ -145,7 +145,7 @@ public class tiny_gp {
 
 
 
-    public tiny_gp( String fname, long s ) {
+    public TinyGp( String fname, long s ) {
         fitness =  new double[POPSIZE];
         seed = s;
         if ( seed >= 0 )
@@ -153,14 +153,14 @@ public class tiny_gp {
         fit.setup_fitness(fname); // set parameters from first line of file
         for ( int i = 0; i < FSET_START; i ++ )
             x[i]= (maxrandom-minrandom)*rd.nextDouble()+minrandom;
-        pop = create_random_pop(POPSIZE, DEPTH, fitness );
+        pop = createRandomPop(POPSIZE, DEPTH, fitness );
     }
 
     void evolve() {
         int gen = 0, indivs, offspring, parent1, parent2, parent;
         double newfit;
         char []newind;
-        printer.print_parms();
+        printer.printParms();
         statistics.stats( this,printer, fitness, pop, 0 );
         for ( gen = 1; gen < GENERATIONS; gen ++ ) {
             if (  fbestpop > -1e-5 ) {
@@ -200,7 +200,7 @@ public class tiny_gp {
             fname = args[0];
         }
 
-        tiny_gp gp = new tiny_gp(fname, s);
+        TinyGp gp = new TinyGp(fname, s);
         gp.evolve();
 
 

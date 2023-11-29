@@ -36,7 +36,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>pl.edu.agh.kis.pg.tiny_gp</mainClass>
+              <mainClass>pl.edu.agh.kis.pg.TinyGp</mainClass>
             </manifest>
           </archive>
         </configuration>

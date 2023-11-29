@@ -3,18 +3,18 @@ package pl.edu.agh.kis.pg;
 import java.util.*;
 import java.io.*;
 
-import static pl.edu.agh.kis.pg.tiny_gp.*;
+import static pl.edu.agh.kis.pg.TinyGp.*;
 
 public class Statistics {
 
-    void stats(tiny_gp tiny_gp,Printer printer, double [] fitness, char [][] pop, int gen ) {
+    void stats(TinyGp TinyGp,Printer printer, double [] fitness, char [][] pop, int gen ) {
         int i, best = rd.nextInt(POPSIZE);
         int node_count = 0;
         fbestpop = fitness[best];
         favgpop = 0.0;
 
         for ( i = 0; i < POPSIZE; i ++ ) {
-            node_count +=  tiny_gp.traverse( pop[i], 0 );
+            node_count +=  TinyGp.traverse( pop[i], 0 );
             favgpop += fitness[i];
             if ( fitness[i] > fbestpop ) {
                 best = i;
@@ -36,7 +36,7 @@ public class Statistics {
             e.printStackTrace();
         }
 
-        printer.print_indiv( pop[best], 0 );
+        printer.printIndiv( pop[best], 0 );
 
         //TODO: otworz plik, zapisz tam skonwertowane równanie:
         File fold = new File("to_excel.txt");
@@ -45,7 +45,7 @@ public class Statistics {
         expressionToExcel = expressionToExcel.replace(".", ",");
         expressionToExcel = expressionToExcel.replace("- -", "+");
         expressionToExcel = expressionToExcel.replace("X1", "A1");
-//        expressionToExcel = expressionToExcel.replace("X2", "AN3");
+        expressionToExcel = expressionToExcel.replace("X2", "B1");
 
         File fnew = new File("to_excel.txt");
         try {

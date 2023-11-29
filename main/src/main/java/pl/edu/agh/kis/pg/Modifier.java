@@ -1,20 +1,20 @@
 package pl.edu.agh.kis.pg;
 
-import static pl.edu.agh.kis.pg.tiny_gp.*;
+import static pl.edu.agh.kis.pg.TinyGp.*;
 
 public class Modifier {
-    char [] crossover(tiny_gp tiny_gp, char []parent1, char [] parent2 ) {
+    char [] crossover(TinyGp TinyGp, char []parent1, char [] parent2 ) {
         int xo1start, xo1end, xo2start, xo2end;
         char [] offspring;
-        int len1 = tiny_gp.traverse( parent1, 0 );
-        int len2 = tiny_gp.traverse( parent2, 0 );
+        int len1 = TinyGp.traverse( parent1, 0 );
+        int len2 = TinyGp.traverse( parent2, 0 );
         int lenoff;
 
         xo1start =  rd.nextInt(len1);
-        xo1end = tiny_gp.traverse( parent1, xo1start );
+        xo1end = TinyGp.traverse( parent1, xo1start );
 
         xo2start =  rd.nextInt(len2);
-        xo2end = tiny_gp.traverse( parent2, xo2start );
+        xo2end = TinyGp.traverse( parent2, xo2start );
 
         lenoff = xo1start + (xo2end - xo2start) + (len1-xo1end);
 
@@ -30,8 +30,8 @@ public class Modifier {
         return( offspring );
     }
 
-    char [] mutation(tiny_gp tiny_gp, char [] parent, double pmut ) {
-        int len = tiny_gp.traverse( parent, 0 ), i;
+    char [] mutation(TinyGp TinyGp, char [] parent, double pmut ) {
+        int len = TinyGp.traverse( parent, 0 ), i;
         int mutsite;
         char [] parentcopy = new char [len];
 

@@ -1,7 +1,7 @@
 package pl.edu.agh.kis.pg;
 
 
-import static pl.edu.agh.kis.pg.tiny_gp.*;
+import static pl.edu.agh.kis.pg.TinyGp.*;
 
 public class Tournament {
     int tournament( double [] fitness, int tsize ) {

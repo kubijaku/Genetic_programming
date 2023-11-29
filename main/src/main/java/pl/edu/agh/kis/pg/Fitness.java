@@ -3,23 +3,23 @@ package pl.edu.agh.kis.pg;
 import java.util.*;
 import java.io.*;
 
-import static pl.edu.agh.kis.pg.tiny_gp.*;
+import static pl.edu.agh.kis.pg.TinyGp.*;
 
 public class Fitness{
     static int fitnesscases;
     static double [][] targets;
 
-    double fitness_function(tiny_gp tiny_gp, char [] Prog, int varnumber) {
+    double fitness_function(TinyGp TinyGp, char [] Prog, int varnumber) {
         int i = 0, len;
         double result, fit = 0.0;
 
-        len = tiny_gp.traverse( Prog, 0 );
+        len = TinyGp.traverse( Prog, 0 );
         for (i = 0; i < fitnesscases; i ++ ) {
             for (int j = 0; j < varnumber; j ++ )
                 x[j] = targets[i][j];
             program = Prog;
             PC = 0;
-            result = tiny_gp.run();
+            result = TinyGp.run();
             fit += Math.abs( result - targets[i][varnumber]);
         }
         return(-fit );
